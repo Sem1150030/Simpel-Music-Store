@@ -12,7 +12,7 @@ Built with **Laravel**, **Livewire**, **Tailwind CSS**, and **MySQL**.
 
 ## 🚀 Tech Stack
 
-- **Backend**: Laravel 10+
+- **Backend**: Laravel 
 - **Frontend**: Tailwind CSS
 - **Interactivity**: Laravel Livewire
 - **Database**: MySQL

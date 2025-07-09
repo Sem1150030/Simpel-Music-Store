@@ -5,12 +5,15 @@
   <meta charset="UTF-8">
   <title>Music-Store</title>
   @vite('resources/css/app.css')
+  <div class="">
+  @livewire('nav-bar')
+  </div>
   @livewireStyles
 
 </head>
 
-<body class="container mx-auto mt-10 mb-10 max-w-3xl">
-  @livewire('music-list', )
+<body >
+  @livewire('music-list')
   @livewireScripts
 
 </body>

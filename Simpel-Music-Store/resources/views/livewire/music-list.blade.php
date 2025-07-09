@@ -1,5 +1,5 @@
 
-<div>
+<div class="container mx-auto mt-35 mb-10 max-w-3xl">
     <h1 class="text-3xl text-center mb-5 font-bold">Alle artiesten</h1>
     <div class="mb-4 space-x-2 rounded-md  p-2">
     @foreach ($artists as $artist)

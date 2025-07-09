@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-[#0A0A0A]">
 
 <head>
   <meta charset="UTF-8">
@@ -12,7 +12,9 @@
 
 </head>
 
-<body >
+<body class="mt-20">
+    <img class="w-full h-auto " src="{{ asset('Images/VinylPlayer.png') }}" alt="VinylRecordPlayer">
+
   @livewire('music-list')
   @livewireScripts
 

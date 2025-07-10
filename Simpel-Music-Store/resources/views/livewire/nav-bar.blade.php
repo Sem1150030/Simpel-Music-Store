@@ -15,10 +15,10 @@
       </button>
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
-      <a href="" class="text-m/6 font-semibold text-[#F4D468]">Home</a>
-      <a href="#" class="text-m/6 font-semibold text-[#F4D468]">Features</a>
-      <a href="#" class="text-m/6 font-semibold text-[#F4D468]">Marketplace</a>
-      <a href="#" class="text-m/6 font-semibold text-[#F4D468]">Company</a>
+      <a href="" class="{{ request()->is('/') ? 'border-b-2' : ''}} text-m/6 font-semibold text-[#F4D468]">Home</a>
+      <a href="#" class="text-m/6 font-semibold text-[#F4D468]">Albums</a>
+      <a href="#" class="text-m/6 font-semibold text-[#F4D468]">Artists</a>
+
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       <a href="#" class="text-m/6 font-semibold text-[#F4D468]">Log in <span aria-hidden="true">&rarr;</span></a>

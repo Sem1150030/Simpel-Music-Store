@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" class="bg-[#0A0A0A]">
+@extends('layouts.app')
 
-<head>
-  <meta charset="UTF-8">
-  <title>Music-Store</title>
-  @vite('resources/css/app.css')
-  <div class="">
-  @livewire('nav-bar')
-  </div>
-  @livewireStyles
+@section('content')
 
-</head>
-
-<body class="mt-20">
     <div class="relative w-full">
         <img
             src="{{ asset('Images/VinylPlayer.png') }}"
@@ -29,6 +18,5 @@
   @livewire('music-list')
   @livewireScripts
 
-</body>
+@endsection
 
-</html>

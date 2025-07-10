@@ -19,3 +19,7 @@
   font-weight: 400;
   font-style: normal;
 }
+
+ .txt {
+   @apply text-m/6 font-semibold text-[#F4D468]
+}

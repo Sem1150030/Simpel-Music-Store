@@ -1,4 +1,4 @@
-<header class="bg-[#0F0F0F] fixed top-0 left-0 w-full shadow z-50 mb-20 ">
+<header class="bg-[#0F0F0F] fixed top-0 left-0 w-full shadow z-50 mb-30 ">
   <nav class="flex items-center justify-between p-5 sm:p-6 lg:px-8" aria-label="Global">
     <div class="flex lg:flex-1">
       <a href="" class="-m-1.5 p-1.5 text-m/6 font-semibold text-[#F4D468]">
@@ -15,9 +15,9 @@
       </button>
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
-      <a href="" class="{{ request()->is('/') ? 'border-b-2' : ''}} text-m/6 font-semibold text-[#F4D468]">Home</a>
-      <a href="#" class="text-m/6 font-semibold text-[#F4D468]">Albums</a>
-      <a href="#" class="text-m/6 font-semibold text-[#F4D468]">Artists</a>
+      <a href="/" class="{{ request()->is('/') ? 'border-b-2 ' : ''}} text-m/6 font-semibold text-[#F4D468]">Home</a>
+      <a href="/albums" class=" {{ request()->is('albums*') ? 'border-b-2 ' : ''}}text-m/6 font-semibold text-[#F4D468]">Albums</a>
+      <a href="#" class="{{ request()->is('/artists') ? 'border-b-2' : ''}}text-m/6 font-semibold text-[#F4D468]">Artists</a>
 
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">

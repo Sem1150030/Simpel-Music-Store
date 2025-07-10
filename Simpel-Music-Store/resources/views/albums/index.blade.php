@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div>
+<div class="mt-20">
     @livewire('album-list')
 </div>
 @endsection

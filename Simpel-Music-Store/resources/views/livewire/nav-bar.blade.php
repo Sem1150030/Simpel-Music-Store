@@ -12,9 +12,10 @@
   <div class="hidden lg:flex flex-1 justify-center">
     <div class="w-full max-w-md">
       <div class="flex rounded-md bg-[#282525] outline outline-1 -outline-offset-1 outline-[#FCD88C] focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#f1cd7e]">
-        <form action="{{ route('search.index') }}" method="GET">
+        <form class="w-full" action="{{ route('search.index') }}" method="GET">
             <input type="text"  name="search" id="search" placeholder="Search album, artist or music"
-                class="block w-full px-2 py-1 text-base text-[#FCD88C] placeholder:text-[#dfcba2] placeholder:text-left focus:outline-none" />
+                class="block w-full px-2 py-1.5 text-base text-[#FCD88C] placeholder:text-[#dfcba2] placeholder:text-left focus:outline-none" />
+
         </form>
       </div>
     </div>

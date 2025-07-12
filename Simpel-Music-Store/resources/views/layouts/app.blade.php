@@ -12,7 +12,7 @@
 
     </head>
 
-    <body class="mt-20">
+    <body class="mt-30">
         @yield('content')
         @livewireScripts
     </body>

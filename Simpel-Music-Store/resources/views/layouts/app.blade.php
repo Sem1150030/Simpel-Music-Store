@@ -12,8 +12,12 @@
 
     </head>
 
-    <body class="mt-30">
+    <body>
         @yield('content')
         @livewireScripts
     </body>
+
+    <footer>
+
+    </footer>
 </html>

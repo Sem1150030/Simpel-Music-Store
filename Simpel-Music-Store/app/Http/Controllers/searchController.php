@@ -14,11 +14,10 @@ class searchController extends Controller
      */
     public function index(Request $request)
     {
-        $artists = Artist::where('name', 'like', '%' . $request->query('search') . '%')->get();
-        $albums = Album::where('name', 'like', '%' . $request->query('search') . '%')->orderBy('release_date')->get();
-        $musics = Music::where('name', 'like', '%' . $request->query('search') . '%')->orderBy('release_date')->get();
+        // $artists = Artist::where('name', 'like', '%' . $request->query('search') . '%')->get();
+        $albums = Album::where('name', 'like', '%' . $request->query('search') . '%')->orderBy('release_date')->paginate(10);
 
-        return view('show', ['artists' => $artists, 'albums' => $albums, 'musics' => $musics]);
+        return view('show', ['albums' => $albums]);
 
     }
 

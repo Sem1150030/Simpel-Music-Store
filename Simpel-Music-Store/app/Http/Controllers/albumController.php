@@ -12,7 +12,7 @@ class albumController extends Controller
      */
     public function index()
     {
-        $albums = Album::get();
+        $albums = Album::orderBy('created_at', 'desc')->paginate(30);
         return view('albums/index', ['albums' => $albums]);
     }
 

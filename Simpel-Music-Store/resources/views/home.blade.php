@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="relative w-full">
+    <div class="mt-20 relative w-full">
         <img
             src="{{ asset('Images/VinylPlayer.png') }}"
             alt="Vinyl Player"

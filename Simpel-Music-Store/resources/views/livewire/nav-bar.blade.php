@@ -42,15 +42,27 @@
 
 </nav>
 <div class="hidden lg:flex flex-1 w-full justify-center items-center pb-4 gap-10 ">
-    <a href="/" class="{{ request()->is('/') ? 'border-b-2' : '' }} text-m/6 font-semibold text-[#F4D468]">New</a>
-    <a href="/albums" class="{{ request()->is('albums*') ? 'border-b-2' : '' }} text-m/6 font-semibold text-[#F4D468]">Albums</a>
+    <a href="/" class="{{ request()->is('/') ? 'border-b-2' : '' }} hover:border-b-2 text-m/6 font-semibold text-[#F4D468]">New</a>
+    <a href="/albums" class="{{ request()->is('albums*') ? 'border-b-2' : '' }} hover:border-b-2 text text-m/6 font-semibold text-[#F4D468]">Albums</a>
     <a wire:click="selectDropdown('new')"
 
-     class="{{ request()->is('artists') ? 'border-b-2' : '' }} cursor-pointer text-m/6 font-semibold text-[#F4D468]">Artists</a>
+     class="{{ request()->is('artists') ? 'border-b-2' : '' }} cursor-pointer hover:border-b-2 text-m/6 font-semibold text-[#F4D468]">Artists</a>
 
-    @if ($newDropdown)
-            <a href="/artists" class="{{ request()->is('artists') ? 'border-b-2' : '' }} text-m/6 font-semibold text-[#F4D468]">PDjsaiudiuhsabfud</a>
 
-    @endif
 </div>
+ @if ($newDropdown)
+ <hr class=" text-[#775d26]">
+
+<div class="mt-2 space-y-2" id="products">
+                <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-[#F4D468] hover:bg-[#443f2c]">Analytics</a>
+                <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-[#F4D468] hover:bg-[#443f2c]">Engagement</a>
+                <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-[#F4D468] hover:bg-[#443f2c]">Security</a>
+                <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-[#F4D468] hover:bg-[#443f2c]">Integrations</a>
+                <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-[#F4D468] hover:bg-[#443f2c]">Automations</a>
+                <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-[#F4D468] hover:bg-[#443f2c]">Watch demo</a>
+                <a href="#" class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-[#F4D468] hover:bg-[#443f2c]">Contact sales</a>
+              </div>
+    @endif
 </header>
+
+

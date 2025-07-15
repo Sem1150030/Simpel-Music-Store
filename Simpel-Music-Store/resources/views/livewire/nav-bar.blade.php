@@ -45,8 +45,7 @@
     <a href="/" class="{{ request()->is('/') ? 'border-b-2' : '' }} text-m/6 font-semibold text-[#F4D468]">New</a>
     <a href="/albums" class="{{ request()->is('albums*') ? 'border-b-2' : '' }} text-m/6 font-semibold text-[#F4D468]">Albums</a>
     <a wire:click="selectDropdown('new')"
-     wire:mouseover="selectDropdown('new')"
-     wire:mouseleave="selectDropdown('new')"
+
      class="{{ request()->is('artists') ? 'border-b-2' : '' }} cursor-pointer text-m/6 font-semibold text-[#F4D468]">Artists</a>
 
     @if ($newDropdown)

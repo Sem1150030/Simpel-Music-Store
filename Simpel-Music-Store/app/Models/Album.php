@@ -16,4 +16,14 @@ class Album extends Model
     public function artist(){
         return $this->belongsTo(Artist::class);
     }
+
+    public function genre(){
+        return $this->belongsTo(Genre::class);
+    }
+    public function reviews(){
+        return $this->morphMany('App/Models/Review', 'reviewable');
+    }
+
+
+
 }

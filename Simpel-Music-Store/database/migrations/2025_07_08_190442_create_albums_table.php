@@ -15,12 +15,16 @@ return new class extends Migration
             $table->id();
 
             $table->unsignedBigInteger('artist_id');
+            $table->unsignedBigInteger('genre_id');
+
 
             $table->string('name');
             $table->timestamp('release_date');
             $table->timestamps();
 
             $table->foreign('artist_id')->references('id')->on('artists')->onDelete('cascade');
+            $table->foreign('genre_id')->references('id')->on('genre');
+
 
         });
     }

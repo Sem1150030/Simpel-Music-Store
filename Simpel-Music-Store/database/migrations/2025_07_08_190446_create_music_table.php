@@ -28,7 +28,7 @@ return new class extends Migration
 
             $table->foreign('album_id')->references('id')->on('albums')->onDelete('cascade');
             $table->foreign('artist_id')->references('id')->on('artists')->onDelete('cascade');
-            $table->foreign('genre_id')->references('id')->on('genre');
+            $table->foreign('genre_id')->references('id')->on('genres');
 
         });
     }

@@ -18,6 +18,8 @@ class albumFactory extends Factory
     {
         return [
             'artist_id' =>null,
+            'genre_id' => null,
+
             'name' => fake()->sentence(5),
             'release_date' =>fake()->dateTimeBetween('-2 years')
         ];

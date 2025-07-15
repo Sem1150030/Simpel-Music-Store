@@ -9,6 +9,9 @@ class Genre extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+         'genre',
+    ];
     public function albums(){
         return $this->hasMany(Album::class);
     }

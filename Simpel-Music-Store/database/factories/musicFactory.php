@@ -19,6 +19,7 @@ class musicFactory extends Factory
         return [
             'artist_id' =>null,
             'album_id' => null,
+            'genre_id' => null,
             'name' => fake()->sentence(5),
             'duraction_sec' => fake()->numberBetween(100, 500),
             'release_date' =>fake()->dateTimeBetween('-2 years')

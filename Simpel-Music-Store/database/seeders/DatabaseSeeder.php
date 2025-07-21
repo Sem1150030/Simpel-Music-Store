@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Artisan;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
+
     public function run(): void
     {
         $genres = [
@@ -38,9 +36,10 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+            'password' => 'Test123!'
         ]);
-        Artist::factory(33)->create()->each(function(Artist $artist){
-            $numAlbums = random_int(2, 10);
+        Artist::factory(30)->create()->each(function(Artist $artist){
+            $numAlbums = random_int(2, 5);
             Album::factory()
                 ->count($numAlbums)
                 ->state(function (){
@@ -51,8 +50,8 @@ class DatabaseSeeder extends Seeder
                 ->for($artist)
                 ->create()
                 ->each(function($album) use ($artist){
-                    $numMusic = random_int(8, 20);
-                    $numReviews = random_int(2, 30);
+                    $numMusic = random_int(4, 10);
+                    $numReviews = random_int(2, 10);
                     Review::factory()
                     ->count($numReviews)
                     ->create(
@@ -73,7 +72,7 @@ class DatabaseSeeder extends Seeder
                         ->for($album)
                         ->create()
                         ->each(function($music){
-                            $numReviews = random_int(2, 30);
+                            $numReviews = random_int(2, 12);
                             Review::factory()
                             ->count($numReviews)
                             ->create(

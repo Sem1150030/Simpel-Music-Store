@@ -10,7 +10,7 @@
 
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
 
-    <form action="{{ route('login.attempt') }}" method="POST" class="space-y-6">
+    <form action="{{ route('') }}" method="POST" class="space-y-6">
         @csrf
          @if($errors->any())
             <div>

@@ -19,6 +19,8 @@ Route::get('/search', [searchController::class, 'index'])->name('search.index');
 
 Route::get('/auth/login', [authController::class, 'login'])->name('auth.login');
 
+Route::get('/auth/register', [authController::class, 'register'])->name('auth.register');
+
 Route::post('auth/login', loginController::class)->name('login.attempt');
 
 

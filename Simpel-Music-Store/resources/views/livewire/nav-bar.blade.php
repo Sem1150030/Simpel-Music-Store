@@ -25,7 +25,7 @@
   <!-- Right: Nav links -->
   <div class="hidden lg:flex flex-1 justify-end items-center gap-x-8">
 
-    <a href="auth/login" class="text-m/6 font-semibold text-[#F4D468]">Log in <span aria-hidden="true">&rarr;</span></a>
+    <a href="/auth/login" class="text-m/6 font-semibold text-[#F4D468]">Log in <span aria-hidden="true">&rarr;</span></a>
   </div>
 
   <!-- Mobile Menu Button -->

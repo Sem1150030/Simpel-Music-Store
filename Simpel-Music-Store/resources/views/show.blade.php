@@ -20,7 +20,10 @@
     @else
         <div class="flex justify-center items-center text-center">
             <h1 class="text-xl text-center mb-1 font-bold text-[#eedda3]">Er zijn geen albums gevonden</h1>
-        </div>
+        </div>7"files.associations": {
+  "*.blade.php": "html"
+}
+
     @endif
     </div>
 
@@ -31,4 +34,6 @@
 <div class="flex justify-center items-center">
 {{ $albums->links() }}
 </div class="pb-4">
+<div class="">
+</div>
 @endsection

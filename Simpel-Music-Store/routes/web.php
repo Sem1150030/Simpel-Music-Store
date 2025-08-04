@@ -3,6 +3,7 @@
 use App\Http\Controllers\albumController;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\registerController;
 use App\Http\Controllers\searchController;
 use App\Models\Artist;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,8 @@ Route::get('/auth/login', [authController::class, 'login'])->name('auth.login');
 
 Route::get('/auth/register', [authController::class, 'register'])->name('auth.register');
 
-Route::post('auth/login', loginController::class)->name('login.attempt');
+Route::post('/auth/login', loginController::class)->name('login.attempt');
+
+Route::post('/auth/register', registerController::class)->name('register.attempt');
 
 

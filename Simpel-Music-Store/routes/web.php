@@ -16,6 +16,8 @@ Route::get('/', function () {
 
 Route::get('/albums', [albumController::class, 'index']);
 
+Route::get('/albums/{id}', [albumController::class, 'show'])->name('album.show');
+
 Route::get('/search', [searchController::class, 'index'])->name('search.index');
 
 Route::get('/auth/login', [authController::class, 'login'])->name('auth.login');

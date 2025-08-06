@@ -23,25 +23,13 @@
   </div>
 
   <!-- Right: Nav links -->
-  <div class="hidden lg:flex flex-1 justify-end items-center gap-x-8">
-
+  <div class=" flex flex-1 justify-end items-center gap-x-8">
     <a href="/auth/login" class="text-m/6 font-semibold text-[#F4D468]">Log in <span aria-hidden="true">&rarr;</span></a>
-  </div>
-
-  <!-- Mobile Menu Button -->
-  <div class="flex lg:hidden flex-1 justify-end items-center gap-x-8">
-    <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-[#F4D468]">
-      <span class="sr-only">Open main menu</span>
-      <svg class="size-7 sm:size-8" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-      </svg>
-    </button>
-
   </div>
     </div>
 
 </nav>
-<div class="hidden lg:flex flex-1 w-full justify-center items-center pb-4 gap-10 ">
+<div class=" flex flex-1 w-full justify-center items-center pb-4 gap-10 ">
     <a href="/" class="{{ request()->is('/') ? 'border-b-2' : '' }} hover:border-b-2 text-m/6 font-semibold text-[#F4D468]">New</a>
     <a href="/albums" class="{{ request()->is('albums*') ? 'border-b-2' : '' }} hover:border-b-2 text text-m/6 font-semibold text-[#F4D468]">Albums</a>
     <a wire:click="selectDropdown('new')"

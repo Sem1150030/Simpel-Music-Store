@@ -14,5 +14,14 @@
             </h1>
          @endif
 
+        <div class="flex justify-center h">
+            <form action="{{ route('album.show', ['id' => $data->id]  ) }}" method="GET">
+                <button type="sumbit"  class="cursor-pointer mt-auto text-[#ebd58d] rounded-md bg-[#161616] px-3.5 py-2 ring-1 ring-inset ring-[#8D8449] hover:bg-[#1d1b1b]">Click Me</button>
+            </form>
+            </div>
+
+
     </div>
+
+
 </div>

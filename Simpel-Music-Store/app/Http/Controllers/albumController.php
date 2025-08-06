@@ -35,9 +35,10 @@ class albumController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $album = Album::where('id', $id)->firstOrFail();
+        return view('albums.show', ['album' => $album]);
     }
 
     /**

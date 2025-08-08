@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Album extends Model
 {
     use HasFactory;
@@ -21,7 +22,7 @@ class Album extends Model
         return $this->belongsTo(Genre::class);
     }
     public function reviews(){
-        return $this->morphMany('App/Models/Review', 'reviewable');
+        return $this->morphMany(Review::class, 'reviewable');
     }
 
 

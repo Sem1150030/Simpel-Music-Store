@@ -12,11 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reviews', function (Blueprint $table) {
+
+            $table->unsignedBigInteger('user_id');
+
             $table->id();
             $table->unsignedTinyInteger('rating');
             $table->text('comment');
             $table->morphs('reviewable');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

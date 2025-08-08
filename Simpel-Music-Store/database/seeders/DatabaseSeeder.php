@@ -34,10 +34,35 @@ class DatabaseSeeder extends Seeder
         }
 
         User::factory()->create([
-            'name' => 'Test User',
+            'name' => 'Test',
             'email' => 'test@example.com',
             'password' => 'Test123!'
         ]);
+
+        User::factory()->create([
+            'name' => 'Sem',
+            'email' => 'test4@example.com',
+            'password' => 'Test123!'
+        ]);
+
+        User::factory()->create([
+            'name' => 'Megan',
+            'email' => 'test1@example.com',
+            'password' => 'Test123!'
+        ]);
+
+         User::factory()->create([
+            'name' => 'Tim',
+            'email' => 'test2@example.com',
+            'password' => 'Test123!'
+        ]);
+
+        User::factory()->create([
+            'name' => 'Henk',
+            'email' => 'test3@example.com',
+            'password' => 'Test123!'
+        ]);
+
         Artist::factory(30)->create()->each(function(Artist $artist){
             $numAlbums = random_int(2, 5);
             Album::factory()
@@ -54,6 +79,11 @@ class DatabaseSeeder extends Seeder
                     $numReviews = random_int(2, 10);
                     Review::factory()
                     ->count($numReviews)
+                    ->state(function (){
+                                return [
+                                    'user_id' => User::inRandomOrder()->value('id')
+                                ];
+                            })
                     ->create(
                         [
                             'reviewable_id' => $album->id,
@@ -75,10 +105,15 @@ class DatabaseSeeder extends Seeder
                             $numReviews = random_int(2, 12);
                             Review::factory()
                             ->count($numReviews)
+                            ->state(function (){
+                                return [
+                                    'user_id' => User::inRandomOrder()->value('id')
+                                ];
+                            })
                             ->create(
                                 [
                                     'reviewable_id' => $music->id,
-                                    'reviewable_type' => Album::class
+                                    'reviewable_type' => Music::class
                                 ]
                                 );
                             });

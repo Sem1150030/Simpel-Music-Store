@@ -24,7 +24,12 @@
 
   <!-- Right: Nav links -->
   <div class=" flex flex-1 justify-end items-center gap-x-8">
-    <a href="/auth/login" class="text-m/6 font-semibold text-[#F4D468]">Log in <span aria-hidden="true">&rarr;</span></a>
+    @if(!Auth::check())
+        <a href="/auth/login" class="text-m/6 font-semibold text-[#F4D468]">Log in <span aria-hidden="true">&rarr;</span></a>
+    @endif
+    @if (Auth::check())
+        <a href="/auth/logout" method="POST" class="text-m/6 font-semibold text-[#F4D468]">Log out <span aria-hidden="true">&rarr;</span></a>
+    @endif
   </div>
     </div>
 

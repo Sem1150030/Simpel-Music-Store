@@ -15,7 +15,7 @@
     </div>
 </div>
 
-  @livewire('music-list')
+  @livewire('artist-list')
   @livewireScripts
 
 @endsection

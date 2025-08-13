@@ -6,7 +6,7 @@
 
             class="w-[90%] max-w-xs mx-auto  mt-2">
         @endif
-        @if($data->pfIMG)
+        @if($data->album_img)
             <img src="{{ $data->album_img }}"
 
             class="w-[90%] max-w-xs mx-auto  mt-2">

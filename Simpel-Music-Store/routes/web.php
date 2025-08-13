@@ -28,4 +28,6 @@ Route::post('/auth/login', loginController::class)->name('login.attempt');
 
 Route::post('/auth/register', registerController::class)->name('register.attempt');
 
+Route::get('/auth/logout', [authController::class, 'logout'])->name('logout.attempt');
+
 

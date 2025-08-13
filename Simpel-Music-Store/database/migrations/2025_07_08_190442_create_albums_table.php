@@ -19,7 +19,9 @@ return new class extends Migration
 
 
             $table->string('name');
-            $table->timestamp('release_date');
+            $table->string('release_date')->nullable();
+            $table->string('album_img')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
 
             $table->foreign('artist_id')->references('id')->on('artists')->onDelete('cascade');

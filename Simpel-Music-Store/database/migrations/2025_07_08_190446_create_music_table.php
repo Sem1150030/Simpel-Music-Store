@@ -21,8 +21,10 @@ return new class extends Migration
 
 
             $table->string('name');
-            $table->timestamp('release_date');
-            $table->integer('duraction_sec');
+            $table->string('release_date')->nullable();
+            $table->integer('duraction_sec')->nullable();
+
+            $table->string('album_img')->nullable();
 
             $table->timestamps();
 

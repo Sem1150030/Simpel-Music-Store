@@ -22,7 +22,9 @@ class musicFactory extends Factory
             'genre_id' => null,
             'name' => fake()->sentence(5),
             'duraction_sec' => fake()->numberBetween(100, 500),
-            'release_date' =>fake()->dateTimeBetween('-2 years')
+            'release_date' =>'2018',
+            'album_img' => 'https://picsum.photos/200'
+
         ];
     }
 }

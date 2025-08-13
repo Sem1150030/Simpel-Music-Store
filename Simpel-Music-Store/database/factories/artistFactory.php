@@ -17,7 +17,20 @@ class artistFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'name' => 'SemS',
+            'born' => '1999',
+            'died' => '-',
+            'label' => 'Black Media',
+            'mood' => 'Powerfull',
+            'style' => 'HipHop',
+            'bio' => fake()->paragraph(3),
+            'genre' => 'hiphop',
+            'gender' => 'Male',
+            'logoIMG' => 'https://picsum.photos/200',
+            'pfIMG' => 'https://picsum.photos/200',
+            'bannerIMG' => 'https://picsum.photos/200',
+
+
         ];
     }
 }

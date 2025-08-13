@@ -1,14 +1,23 @@
 
 <div class="">
     <div class="relativew-54 h-92 bg-[#161616] border-3 border-[#8D8449]">
-        <img src="https://picsum.photos/200"
-        alt="Album cover"
-        class="w-[90%] max-w-xs mx-auto  mt-2">
+        @if($data->pfIMG)
+            <img src="{{ $data->pfIMG }}"
+
+            class="w-[90%] max-w-xs mx-auto  mt-2">
+        @endif
+        @if($data->pfIMG)
+            <img src="{{ $data->album_img }}"
+
+            class="w-[90%] max-w-xs mx-auto  mt-2">
+        @endif
+
+
         <h1 class="mt-2 text-center pl-2 text-[#f8f8ea]">
          {{ $data->name }}
         </h1>
 
-         @if($data->genre?->genre)
+       @if(empty($data->bio))
             <h1 class="mt-2 text-center pl-2 text-[#f8f8ea]">
                  {{ $data->genre->genre }}
             </h1>

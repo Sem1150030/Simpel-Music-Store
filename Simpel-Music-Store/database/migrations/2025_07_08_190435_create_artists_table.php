@@ -15,6 +15,18 @@ return new class extends Migration
             $table->id();
 
             $table->string('name');
+            $table->string('born')->nullable();
+            $table->string('died')->nullable();
+            $table->string('label')->nullable();
+            $table->string('mood')->nullable();
+            $table->string('style')->nullable();
+            $table->string('genre')->nullable();
+            $table->text('bio')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('logoIMG')->nullable();
+            $table->string('pfIMG')->nullable();
+            $table->string('bannerIMG')->nullable();
+
 
             $table->timestamps();
         });

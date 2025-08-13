@@ -21,7 +21,9 @@ class albumFactory extends Factory
             'genre_id' => null,
 
             'name' => fake()->sentence(5),
-            'release_date' =>fake()->dateTimeBetween('-2 years')
+            'release_date' =>fake()->dateTimeBetween('-2 years'),
+            'album_img' => 'https://picsum.photos/200',
+            'description' => fake()->paragraph(5),
         ];
     }
 }

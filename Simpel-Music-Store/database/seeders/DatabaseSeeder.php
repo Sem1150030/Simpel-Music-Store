@@ -18,15 +18,18 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $genres = [
-            ['genre' => 'Hip-Hop',],
-            ['genre' => 'Pop',],
-            ['genre' => 'Rock',],
-            ['genre' => 'Jazz',],
-            ['genre' => 'Classical',],
-            ['genre' => 'Country',],
-            ['genre' => 'Electronic',],
-            ['genre' => 'R&B',],
-        ];
+    ['genre' => 'None found'],    ['genre' => 'Hip-Hop'],    ['genre' => 'Pop'],    ['genre' => 'Rock'],    ['genre' => 'Jazz'],    ['genre' => 'Classical'],    ['genre' => 'Country'],    ['genre' => 'Electronic'],
+    ['genre' => 'R&B'],    ['genre' => 'Trap'],    ['genre' => 'Blues'],    ['genre' => 'Soul'],    ['genre' => 'Funk'],    ['genre' => 'Folk'],    ['genre' => 'Reggae'],
+    ['genre' => 'Ska'],    ['genre' => 'Metal'],    ['genre' => 'Punk'],    ['genre' => 'Gospel'],    ['genre' => 'World'],    ['genre' => 'Latin'],    ['genre' => 'Disco'],
+    ['genre' => 'House'],    ['genre' => 'Techno'],    ['genre' => 'Trance'],    ['genre' => 'Dubstep'],    ['genre' => 'Drum and Bass'],    ['genre' => 'Ambient'],    ['genre' => 'Opera'],
+    ['genre' => 'Soundtrack'],    ['genre' => 'Industrial'],    ['genre' => 'Experimental'],    ['genre' => 'Grunge'],    ['genre' => 'Shoegaze'],    ['genre' => 'Alternative'],
+    ['genre' => 'Indie'],    ['genre' => 'Lo-fi'],    ['genre' => 'Chillout'],    ['genre' => 'Bluegrass'],    ['genre' => 'Afrobeat'],    ['genre' => 'K-Pop'],    ['genre' => 'J-Pop'],
+    ['genre' => 'Flamenco'],    ['genre' => 'Samba'],    ['genre' => 'Bossa Nova'],    ['genre' => 'Tango'],    ['genre' => 'Cumbia'],    ['genre' => 'Zouk'],    ['genre' => 'Reggaeton'],
+    ['genre' => 'Dancehall'],    ['genre' => 'Drill'],    ['genre' => 'Phonk'],    ['genre' => 'Soca'],    ['genre' => 'Highlife'],    ['genre' => 'Chiptune'],    ['genre' => 'Synthwave'],
+    ['genre' => 'Post-Rock'],    ['genre' => 'Post-Punk'],    ['genre' => 'New Wave'],    ['genre' => 'Hardcore'],    ['genre' => 'Emo'],    ['genre' => 'Math Rock'],    ['genre' => 'Progressive Rock'],
+    ['genre' => 'Psychedelic Rock'],    ['genre' => 'Baroque'],    ['genre' => 'Minimalism'],    ['genre' => 'Contemporary Classical'],
+];
+
 
 
         foreach($genres as $genre){
@@ -63,7 +66,7 @@ class DatabaseSeeder extends Seeder
             'password' => 'Test123!'
         ]);
 
-        Artist::factory(30)->create()->each(function(Artist $artist){
+        Artist::factory(1)->create()->each(function(Artist $artist){
             $numAlbums = random_int(2, 5);
             Album::factory()
                 ->count($numAlbums)

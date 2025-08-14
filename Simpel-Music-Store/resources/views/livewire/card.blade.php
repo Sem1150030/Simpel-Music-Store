@@ -1,6 +1,6 @@
 
 <div class="">
-    <div class="relativew-54 h-92 bg-[#161616] border-3 border-[#8D8449]">
+    <div class="relativew-54 h-100 bg-[#161616] border-3 border-[#8D8449]">
         @if($data->pfIMG)
             <img src="{{ $data->pfIMG }}"
 
@@ -8,7 +8,6 @@
         @endif
         @if($data->album_img)
             <img src="{{ $data->album_img }}"
-
             class="w-[90%] max-w-xs mx-auto  mt-2">
         @endif
 
@@ -24,11 +23,17 @@
          @endif
 
         <div class="flex justify-center h-auto bottom-0">
-            @if($type == 'Album')
-                <form action="{{ route('album.show', ['id' => $data->id]  ) }}" method="GET">
+                <form action="{{
+                    $data->type ==='Album'
+                        ? route('album.show', ['id' => $data->id])
+                        : ($data->type === 'Artist'
+                            ? route('artist.show', ['id' => $data->id])
+                            : route('artist.show', ['id' => $data->id]))
+                }}" method="GET">
+
                     <button type="sumbit"  class="cursor-pointer mt-auto text-[#ebd58d] rounded-md bg-[#161616] px-3.5 py-2 ring-1 ring-inset ring-[#8D8449] hover:bg-[#1d1b1b]">Click Me</button>
                 </form>
-            @endif
+
             </div>
     </div>
 

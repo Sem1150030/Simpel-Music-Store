@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Artist;
 use Illuminate\Http\Request;
 
 class artistController extends Controller
@@ -35,7 +36,8 @@ class artistController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $artist = Artist::where('id', $id)->firstOrFail();
+        return view('artists.show', ['artist' => $artist]);
     }
 
     /**

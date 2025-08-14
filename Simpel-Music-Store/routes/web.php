@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\albumController;
+use App\Http\Controllers\artistController;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\registerController;
@@ -29,5 +30,7 @@ Route::post('/auth/login', loginController::class)->name('login.attempt');
 Route::post('/auth/register', registerController::class)->name('register.attempt');
 
 Route::get('/auth/logout', [authController::class, 'logout'])->name('logout.attempt');
+
+Route::get('/artist/{id}', [artistController::class, 'show'])->name('artist.show');
 
 

@@ -21,8 +21,13 @@
                  {{ $data->genre->genre }}
             </h1>
          @endif
+         @if ($data->type ==='Album')
+         @endif
 
         <div class="flex justify-center h-auto bottom-0">
+            @if(empty($data->bio))
+                @livewire('add-to-shopping-cart', ['album_id' => $data->id])
+            @endif
                 <form action="{{
                     $data->type ==='Album'
                         ? route('album.show', ['id' => $data->id])

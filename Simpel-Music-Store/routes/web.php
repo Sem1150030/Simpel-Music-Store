@@ -13,7 +13,7 @@ Route::get('/', function () {
     $artist = Artist::with('albums.musics')->get();
 
     return view('home', ['$artist' => $artist]);
-});
+})->name('site.home');
 
 Route::get('/albums', [albumController::class, 'index']);
 
@@ -32,5 +32,7 @@ Route::post('/auth/register', registerController::class)->name('register.attempt
 Route::get('/auth/logout', [authController::class, 'logout'])->name('logout.attempt');
 
 Route::get('/artist/{id}', [artistController::class, 'show'])->name('artist.show');
+
+
 
 

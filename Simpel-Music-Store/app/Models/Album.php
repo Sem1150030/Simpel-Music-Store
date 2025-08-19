@@ -14,6 +14,10 @@ class Album extends Model
         return $this->hasMany(Music::class);
     }
 
+    public function orders(){
+        return $this->belongsToMany(Order::class)->withPivot('quantity');
+    }
+
     public function artist(){
         return $this->belongsTo(Artist::class);
     }

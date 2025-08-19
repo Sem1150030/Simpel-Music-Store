@@ -15,6 +15,6 @@ class AlbumList extends Component
     }
 
     public function mount(){
-        $this->albums = Album::with('genre')->get();
+        $this->albums = Album::with('genre')->take(25)->get();
     }
 }

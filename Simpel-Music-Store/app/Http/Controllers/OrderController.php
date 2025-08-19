@@ -15,6 +15,10 @@ class OrderController extends Controller
         //
     }
 
+    public function cart(){
+        return view('order.cart');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -55,6 +59,8 @@ class OrderController extends Controller
     {
         //
     }
+
+
 
     /**
      * Show the form for editing the specified resource.

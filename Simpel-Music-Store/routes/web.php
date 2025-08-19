@@ -4,6 +4,7 @@ use App\Http\Controllers\albumController;
 use App\Http\Controllers\artistController;
 use App\Http\Controllers\authController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\registerController;
 use App\Http\Controllers\searchController;
 use App\Models\Artist;
@@ -33,6 +34,4 @@ Route::get('/auth/logout', [authController::class, 'logout'])->name('logout.atte
 
 Route::get('/artist/{id}', [artistController::class, 'show'])->name('artist.show');
 
-
-
-
+Route::get('/orders/cart', [OrderController::class, 'cart'])->name('orders.cart');

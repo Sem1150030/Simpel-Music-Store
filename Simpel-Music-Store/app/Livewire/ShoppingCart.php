@@ -12,9 +12,9 @@ class ShoppingCart extends Component
     public $cart = [];
     public $album_id;
 
-    public function mount($album_id){
+    public function mount(){
         $this->cart = json_decode(Cookie::get('cart', '[]'), true);
-        $this->album_id = $album_id;
+
     }
 
     public function addToCart(){

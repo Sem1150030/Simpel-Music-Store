@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
@@ -37,13 +38,15 @@ class OrderController extends Controller
             return redirect()->route('login')->with('error', 'You must be logged in to place an order.');
         }
         if(Auth::id()){
-        //validate order stap 1
-            $validated = $request->validate([
-                'albums' => 'required|array',
+            $cart = json_decode($request->input('cart'), true);
+            $validated = Validator::make(
+                ['albums' => $cart],
+                [
+                'albums' => 'required',
                 'albums.*.album_id' => 'required|exists:albums,id',
                 'albums.*.quantity' => 'required|integer|min:1',
 
-            ]);
+            ])->validate();
 
             //create order stap 2
             $order = Order::create([

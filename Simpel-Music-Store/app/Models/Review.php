@@ -9,6 +9,9 @@ class Review extends Model
 {
     use HasFactory;
 
+        protected $fillable = ['user_id'];
+
+
     public function reviewable(){
         return $this->morphTo();
     }

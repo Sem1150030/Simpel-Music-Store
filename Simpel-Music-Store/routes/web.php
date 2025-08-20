@@ -35,3 +35,5 @@ Route::get('/auth/logout', [authController::class, 'logout'])->name('logout.atte
 Route::get('/artist/{id}', [artistController::class, 'show'])->name('artist.show');
 
 Route::get('/orders/cart', [OrderController::class, 'cart'])->name('orders.cart');
+
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');

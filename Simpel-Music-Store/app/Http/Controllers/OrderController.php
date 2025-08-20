@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use Auth;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -32,24 +33,33 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        if (!Auth::id()) {
+            return redirect()->route('login')->with('error', 'You must be logged in to place an order.');
+        }
+        if(Auth::id()){
         //validate order stap 1
-        $validated = $request->validate([
-            'user_id' => 'exists:users,id',
-            'albums' => 'required|array',
-            'albums.*' => 'exists:albums,id',
-            '' => false,
-        ]);
+            $validated = $request->validate([
+                'albums' => 'required|array',
+                'albums.*.album_id' => 'required|exists:albums,id',
+                'albums.*.quantity' => 'required|integer|min:1',
 
-        //create order stap 2
-        $order = Order::create([
-            'user_id' => $validated['user_id'],
-            'isReturned' => $validated['isReturned']
-        ]);
+            ]);
 
-        //Attach albums naar de order stap 3 (M2M)
-        $order->albums()->attach($validated['albums']);
+            //create order stap 2
+            $order = Order::create([
+                'user_id' => Auth::id(),
+            ]);
 
-        return redirect()->route('site.home')->with('success', 'Order created successfully!');
+
+            $pivotData = collect($validated['albums'])->mapWithKeys(fn ($album) => [
+                $album['album_id'] => ['quantity' => $album['quantity']]
+            ]);
+
+            //Attach albums naar de order stap 3 (M2M)
+            $order->albums()->attach($pivotData);
+
+            return redirect()->route('site.home')->with('success', 'Order created successfully!');
+        }
     }
 
     /**

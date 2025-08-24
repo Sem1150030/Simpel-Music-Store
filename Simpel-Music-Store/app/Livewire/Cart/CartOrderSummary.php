@@ -13,7 +13,7 @@ class CartOrderSummary extends Component
 
     public $totalTaxCost = 0;
     public $totalCost = 0;
-    public $shippingCost = 7.95;
+    public $shippingCost = 0;
 
     public function mount($cart){
         $this->cart = $cart;
@@ -27,6 +27,9 @@ class CartOrderSummary extends Component
         foreach($this->cart as $item){
             $album = $this->albums->firstwhere('id', $item['album_id']);
             $this->totalCostBT += ($album->price * $item['quantity']);
+        }
+        if($this->totalCostBT > 0 ){
+            $this->shippingCost = 7.95;
         }
 
         $this->totalTaxCost = round($this->totalCostBT * 0.21, 2);

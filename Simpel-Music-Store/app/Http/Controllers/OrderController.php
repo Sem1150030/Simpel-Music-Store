@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
@@ -35,7 +36,7 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         if (!Auth::id()) {
-            return redirect()->route('login')->with('error', 'You must be logged in to place an order.');
+            return redirect()->route('auth.login')->with('error', 'You must be logged in to place an order.');
         }
         if(Auth::id()){
             $cart = json_decode($request->input('cart'), true);
@@ -60,6 +61,9 @@ class OrderController extends Controller
 
             //Attach albums naar de order stap 3 (M2M)
             $order->albums()->attach($pivotData);
+
+            //remove cookie so cart is emptied
+            Cookie::queue(Cookie::forget('cart'));
 
             return redirect()->route('site.home')->with('success', 'Order created successfully!');
         }

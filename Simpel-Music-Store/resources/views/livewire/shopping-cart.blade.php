@@ -7,7 +7,7 @@
         <h2 id="cart-heading" class="sr-only">Items in your shopping cart</h2>
         <ul role="list" class="divide-y divide-gray-200 border-b border-t border-gray-200">
             @foreach ($cart as $item)
-                @livewire('shopping-cart-item', ['item' => $item])
+                @livewire('shopping-cart-item', ['item' => $item, 'cart' => $cart])
             @endforeach
         </ul>
         </section>

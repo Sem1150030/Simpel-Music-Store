@@ -3,6 +3,8 @@
 namespace App\Livewire\Cart;
 
 use App\Models\Album;
+use Illuminate\Support\Facades\Cookie;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class CartOrderSummary extends Component
@@ -22,11 +24,18 @@ class CartOrderSummary extends Component
         $this->calculateTotalCost();
     }
 
+    #[On('cartUpdated')]
+    public function updateCart(){
+    $this->cart = json_decode(Cookie::get('cart', '[]'), true);
+
+        $this->calculateTotalCost();
+    }
+
     public function calculateTotalCost(){
         $this->totalCostBT = 0;
         foreach($this->cart as $item){
             $album = $this->albums->firstwhere('id', $item['album_id']);
-            $this->totalCostBT += ($album->price * $item['quantity']);
+            $this->totalCostBT = $this->totalCostBT + ($album->price * $item['quantity']);
         }
         if($this->totalCostBT > 0 ){
             $this->shippingCost = 7.95;

@@ -9,7 +9,11 @@
             @foreach ($cart as $item)
                 @livewire('shopping-cart-item', ['item' => $item, 'cart' => $cart])
             @endforeach
+
         </ul>
+        @if(!$cart)
+                <h1 class=" text-white mt-5">No items in Cart</h1>
+            @endif
         </section>
 
         @livewire('cart.cart-order-summary', ['cart' => $cart ])

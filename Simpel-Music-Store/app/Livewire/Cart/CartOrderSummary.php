@@ -40,6 +40,9 @@ class CartOrderSummary extends Component
         if($this->totalCostBT > 0 ){
             $this->shippingCost = 7.95;
         }
+        else{
+           $this->shippingCost = 0;
+        }
 
         $this->totalTaxCost = round($this->totalCostBT * 0.21, 2);
         $this->totalCost = ($this->totalCostBT + $this->totalTaxCost + $this->shippingCost);

@@ -37,7 +37,7 @@ class ShoppingCartItem extends Component
         $i = 0;
         foreach($this->cart as $cartItem){
 
-            if($cartItem['album_id'] == $this->item['id'] && $cartItem['quantity'] >= 1){
+            if($cartItem['album_id'] == $this->item['id'] && (int)$quantity >= 1){
                 $this->cart[$i]['quantity'] = (int) $quantity;
                 Cookie::queue('cart', json_encode($this->cart), 60 * 24 * 7);
 
@@ -45,11 +45,10 @@ class ShoppingCartItem extends Component
 
                 break;
             }
-            elseif($cartItem['album_id'] == $this->item['album_id'] && $quantity == 0){
+            elseif($cartItem['album_id'] == $this->item['id'] && (int)$quantity == 0){
                 unset($this->cart[$i]);
                 $this->cart = array_values($this->cart);
                 Cookie::queue('cart', json_encode($this->cart), 60 * 24 * 7);
-
                 $this->dispatch('cartUpdated');
                 $this->dispatch('cartItemEmpty');
 

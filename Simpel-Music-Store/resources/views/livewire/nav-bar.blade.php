@@ -30,7 +30,7 @@
         <a href="/auth/login" class="text-m/6 font-semibold text-[#F4D468]">Log in <span aria-hidden="true">&rarr;</span></a>
     @endif
     @if (Auth::check())
-        <a href="/auth/logout" method="POST" class="text-m/6 font-semibold text-[#F4D468]">Log out <span aria-hidden="true">&rarr;</span></a>
+        <a href="/profile/overview" method="POST" class="text-m/6 font-semibold text-[#F4D468]">Profile<span aria-hidden="true">&rarr;</span></a>
     @endif
   </div>
     </div>

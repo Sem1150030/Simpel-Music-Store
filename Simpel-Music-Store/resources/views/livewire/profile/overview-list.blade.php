@@ -7,7 +7,7 @@
         <div class="bg-[#111] border border-yellow-500 text-white rounded-2xl p-6 text-center shadow-lg hover:shadow-yellow-500/30 transition">
             <h2 class="text-xl font-semibold mb-4 text-[#F4D468]">Order History</h2>
             <p class="text-gray-300 mb-4">View your past purchases and track orders.</p>
-            <a href="" class="cursor-pointer px-4 py-2 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400">
+            <a href="/profile/orders" class="cursor-pointer px-4 py-2 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400">
                 View Orders
             </a>
         </div>

@@ -41,4 +41,5 @@ Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('profile/overview', [profileController::class, 'overview'])->name('profile.overview');
+    Route::get('profile/orders', [OrderController::class, 'index']);
 });

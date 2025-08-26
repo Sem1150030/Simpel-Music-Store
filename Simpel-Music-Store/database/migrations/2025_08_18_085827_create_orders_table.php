@@ -17,6 +17,9 @@ return new class extends Migration
 
             $table->unsignedBigInteger('user_id');
             $table->boolean('is_returned')->default(false);
+            $table->float('Subtotal')->default(0);
+            $table->float('Tax')->default(0);
+            $table->float('shippingCost')->default(7.95);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

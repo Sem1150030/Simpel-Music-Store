@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderMail;
 use App\Models\Album;
 use App\Models\Order;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Validator;
+use Mail;
 
 class OrderController extends Controller
 {
@@ -45,6 +47,8 @@ class OrderController extends Controller
 
             $shipping = $totalBT > 0 ? 7.95 : 0;
             $tax = round($totalBT * 0.21, 2);
+            $total = $totalBT + $shipping + $tax;
+
             // dump($totalBT);
 
             //create order stap 2
@@ -66,6 +70,31 @@ class OrderController extends Controller
 
             //remove cookie so cart is emptied
             Cookie::queue(Cookie::forget('cart'));
+
+            $items = collect($cart)->map(function ($item) use ($albums) {
+            $album = $albums->firstWhere('id', $item['album_id']);
+            return [
+                'name' => $album->title,
+                'quantity' => $item['quantity'],
+                'price' => $album->price,
+                'subtotal' => $album->price * $item['quantity'],
+            ];
+                })->toArray();
+
+            // Create data array for email
+            $data = [
+                'order_id' => $order->id, // Or your real order ID
+                'customer_name' => $request->input('name', 'Customer'),
+                'items' => $items,
+                'totalBT' => $totalBT,
+                'shipping' => $shipping,
+                'tax' => $tax,
+                'total' => $total,
+            ];
+            $user = Auth::user();
+
+            Mail::to(Auth::user()->email)->send(new OrderMail($data));
+
 
             return redirect()->route('site.home')->with('success', 'Order created successfully!');
         }

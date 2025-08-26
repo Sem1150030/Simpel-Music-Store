@@ -24,7 +24,6 @@
 
   <!-- Right: Nav links -->
   <div class=" flex flex-1 justify-end items-center gap-x-8">
-
     @livewire('shopping-cart-counter')
     @if(!Auth::check())
         <a href="/auth/login" class="text-m/6 font-semibold text-[#F4D468]">Log in <span aria-hidden="true">&rarr;</span></a>

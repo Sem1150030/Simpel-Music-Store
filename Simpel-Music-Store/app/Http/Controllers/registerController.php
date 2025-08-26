@@ -20,6 +20,6 @@ class registerController extends Controller
         $userData['password'] = bcrypt($userData['password']);
         $user = User::create($userData);
 
-        return redirect()->route('/');
+        return redirect()->route('site.home');
     }
 }

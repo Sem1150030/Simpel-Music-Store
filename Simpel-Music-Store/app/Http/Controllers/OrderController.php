@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
 use App\Models\Order;
 use Auth;
 use Illuminate\Http\Request;
@@ -10,9 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         return view('order.orderHistory');
@@ -22,17 +21,7 @@ class OrderController extends Controller
         return view('order.cart');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         if (!Auth::id()) {
@@ -46,13 +35,26 @@ class OrderController extends Controller
                 'albums' => 'required',
                 'albums.*.album_id' => 'required|exists:albums,id',
                 'albums.*.quantity' => 'required|integer|min:1',
-
             ])->validate();
+            $albums = Album::whereIn('id', array_column($cart, 'album_id'))->get();
+
+            $totalBT = collect($cart)->sum(function ($item) use ($albums) {
+                $album = $albums->firstWhere('id', $item['album_id']);
+                return $album->price * $item['quantity'];
+            });
+
+            $shipping = $totalBT > 0 ? 7.95 : 0;
+            $tax = round($totalBT * 0.21, 2);
+            // dump($totalBT);
 
             //create order stap 2
             $order = Order::create([
                 'user_id' => Auth::id(),
+                'Subtotal' => $totalBT,
+                'Tax' => $tax,
+                'shippingCost' => $shipping,
             ]);
+
 
 
             $pivotData = collect($validated['albums'])->mapWithKeys(fn ($album) => [
@@ -68,6 +70,8 @@ class OrderController extends Controller
             return redirect()->route('site.home')->with('success', 'Order created successfully!');
         }
     }
+
+
 
     /**
      * Display the specified resource.

@@ -3,6 +3,7 @@
 use App\Http\Controllers\albumController;
 use App\Http\Controllers\artistController;
 use App\Http\Controllers\authController;
+use App\Http\Controllers\BackofficeController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\profileController;
@@ -40,6 +41,10 @@ Route::get('/orders/cart', [OrderController::class, 'cart'])->name('orders.cart'
 Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('profile/overview', [profileController::class, 'overview'])->name('profile.overview');
-    Route::get('profile/orders', [OrderController::class, 'index']);
+    Route::get('/profile/overview', [profileController::class, 'overview'])->name('profile.overview');
+    Route::get('/profile/orders', [OrderController::class, 'index']);
+
+    Route::middleware('can:acces-admin')->group(function (){
+        Route::get('/backoffice/overview', [BackofficeController::class, 'overview'])->name('backoffice.overview');
+    });
 });

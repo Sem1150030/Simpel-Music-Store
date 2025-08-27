@@ -9,9 +9,12 @@ class OverviewList extends Component
 {
 
     public $user;
+    public $role;
 
     public function mount(){
         $this->user = Auth::user();
+        $this->role = $this->user->role;
+
     }
 
 

@@ -9,16 +9,16 @@
             <path d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </div>
-        <p class="ml-16 truncate text-sm font-medium text-gray-500">Total Subscribers</p>
+        <p class="ml-16 truncate text-sm font-medium text-gray-500">Total Users</p>
       </dt>
       <dd class="ml-16 flex items-baseline pb-6 sm:pb-7">
-        <p class="text-2xl font-semibold text-gray-900">71,897</p>
+        <p class="text-2xl font-semibold text-gray-900">{{$totalUsersCount}}</p>
         <p class="ml-2 flex items-baseline text-sm font-semibold text-green-600">
           <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5 shrink-0 self-center text-green-500">
             <path d="M10 17a.75.75 0 0 1-.75-.75V5.612L5.29 9.77a.75.75 0 0 1-1.08-1.04l5.25-5.5a.75.75 0 0 1 1.08 0l5.25 5.5a.75.75 0 1 1-1.08 1.04l-3.96-4.158V16.25A.75.75 0 0 1 10 17Z" clip-rule="evenodd" fill-rule="evenodd" />
           </svg>
           <span class="sr-only"> Increased by </span>
-          122
+          {{ $thirtyDaysUserCount }}
         </p>
         <div class="absolute inset-x-0 bottom-0 bg-gray-50 px-4 py-4 sm:px-6">
           <div class="text-sm">
@@ -34,16 +34,16 @@
             <path d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </div>
-        <p class="ml-16 truncate text-sm font-medium text-gray-500">Avg. Open Rate</p>
+        <p class="ml-16 truncate text-sm font-medium text-gray-500">Total Orders</p>
       </dt>
       <dd class="ml-16 flex items-baseline pb-6 sm:pb-7">
-        <p class="text-2xl font-semibold text-gray-900">58.16%</p>
+        <p class="text-2xl font-semibold text-gray-900">{{$totalOrderCount}}</p>
         <p class="ml-2 flex items-baseline text-sm font-semibold text-green-600">
           <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5 shrink-0 self-center text-green-500">
             <path d="M10 17a.75.75 0 0 1-.75-.75V5.612L5.29 9.77a.75.75 0 0 1-1.08-1.04l5.25-5.5a.75.75 0 0 1 1.08 0l5.25 5.5a.75.75 0 1 1-1.08 1.04l-3.96-4.158V16.25A.75.75 0 0 1 10 17Z" clip-rule="evenodd" fill-rule="evenodd" />
           </svg>
           <span class="sr-only"> Increased by </span>
-          5.4%
+          {{$thirtyDaysOrderCount}}
         </p>
         <div class="absolute inset-x-0 bottom-0 bg-gray-50 px-4 py-4 sm:px-6">
           <div class="text-sm">

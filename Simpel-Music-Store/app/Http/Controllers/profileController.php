@@ -79,6 +79,6 @@ class profileController extends Controller
             $user->save();
             return redirect('/backoffice/users/' . $id);
         }
-
+        return redirect('/backoffice/users/' . $id);
     }
 }

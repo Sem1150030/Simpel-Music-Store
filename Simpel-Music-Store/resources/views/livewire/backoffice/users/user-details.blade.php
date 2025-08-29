@@ -25,14 +25,22 @@
                         <span class="font-semibold">Joined:</span> {{ $user->created_at->format('d M Y') }}
                     </p>
                     <span class="font-semibold">Role:</span>
+                    @if(Auth::id() != $user->id)
                     <select name="role" class="ml-2 px-2 py-1 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
                         <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>User</option>
                         <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
                     </select>
+                    @endif
+                    @if(Auth::id() === $user->id)
+                        <span class="font-semibold">{{ucfirst($user->role)}}</span>
+                    @endif
                     <br>
-                    <button type="submit" class="cursor-pointer ml-2 px-6 py-1 mt-5 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                        Save
-                    </button>
+                    @if(Auth::id() != $user->id)
+                        <button type="submit" class="
+                            cursor-pointer  ml-2 px-6 py-1 mt-5 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            Save
+                        </button>
+                    @endif
                 </p>
             </form>
 

@@ -31,7 +31,9 @@
           <button class="relative flex rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
             <span class="absolute -inset-1.5"></span>
             <span class="sr-only">Open user menu</span>
-            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-8 rounded-full bg-gray-100 outline outline-1 -outline-offset-1 outline-black/5" />
+            <img
+            src="{{ asset('Images/PF/' . Auth::user()->image_path) }}"
+            alt="" class="size-8 rounded-full bg-gray-100 outline outline-1 -outline-offset-1 outline-black/5" />
           </button>
 
           <el-menu anchor="bottom end" popover class="m-0 w-48 origin-top-right rounded-md bg-white p-0 py-1 shadow-lg outline outline-1 outline-black/5 transition [--anchor-gap:theme(spacing.2)] [transition-behavior:allow-discrete] data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in">

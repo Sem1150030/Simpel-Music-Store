@@ -15,8 +15,9 @@
     </div>
 </div>
 
-  @livewire('artist-list')
-  @livewireScripts
+<div>
+    @livewire('home.trending-list')
+</div>
 
 @endsection
 

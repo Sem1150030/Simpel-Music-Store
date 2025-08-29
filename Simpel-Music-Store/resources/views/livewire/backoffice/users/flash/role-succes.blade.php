@@ -28,7 +28,7 @@
                     @click="open = false"
                     class="w-full rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-500"
                 >
-                    Go back to dashboard
+                    Go back
                 </button>
             </div>
         </div>

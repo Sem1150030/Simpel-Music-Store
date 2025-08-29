@@ -44,7 +44,17 @@
             </form>
 
             <!-- Joined date -->
+            @if(session('success'))
+                <div class="alert alert-success">
+                    @livewire('backoffice.users.flash.role-succes')
+                </div>
+            @endif
 
+            @if(session('info'))
+                <div class="alert alert-info">
+                    {{ session('info') }}
+                </div>
+            @endif
         </div>
     </div>
 </div>

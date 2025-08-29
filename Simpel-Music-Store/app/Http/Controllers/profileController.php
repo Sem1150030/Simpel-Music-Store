@@ -77,8 +77,9 @@ class profileController extends Controller
         if($user->role !=  $validated['role']){
             $user->role =  $validated['role'];
             $user->save();
-            return redirect('/backoffice/users/' . $id);
+            return redirect('/backoffice/users/' . $id)->with('success', 'User role updated successfully');
         }
-        return redirect('/backoffice/users/' . $id);
+        return redirect('/backoffice/users/' . $id)->with('info', 'No changes were made.');
     }
+
 }

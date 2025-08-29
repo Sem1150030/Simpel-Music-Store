@@ -11,7 +11,7 @@
     </div>
     <div class="overflow-hidden rounded-lg bg-white px-4 py-5 shadow-lg sm:p-6">
       <dt class="truncate text-sm font-medium text-gray-500">Reviews Placed</dt>
-      <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">{{count($reviews) ?? []}}</dd>
+      <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">{{count($reviews)}}</dd>
     </div>
   </dl>
 </div>

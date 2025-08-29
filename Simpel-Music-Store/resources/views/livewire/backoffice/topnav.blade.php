@@ -10,11 +10,34 @@
             <h1 class="kaushan-script-regular text-2xl sm:text-3xl">Vinyl Star</h1>
             </a>        </div>
         <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-          <!-- Current: "border-indigo-600 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
-          <a href="#" class="inline-flex items-center border-b-2 border-indigo-600 px-1 pt-1 text-sm font-medium text-gray-900">Dashboard</a>
-          <a href="#" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Products</a>
-          <a href="/backoffice/users" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Users</a>
-          <a href="#" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Team</a>
+            @php
+                $currentRoute = request()->url();
+
+            @endphp
+
+            <a href="{{ url('/backoffice/overview') }}"
+            class="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium
+            {{ request()->is('backoffice/overview') ? 'border-indigo-600 text-gray-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700' }}">
+            Overview
+            </a>
+
+            <a href="{{ url('/products') }}"
+            class="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium
+            {{ request()->is('backoffice/products') ? 'border-indigo-600 text-gray-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700' }}">
+            Products
+            </a>
+
+            <a href="{{ url('/backoffice/users') }}"
+            class="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium
+            {{ request()->is('backoffice/users') ? 'border-indigo-600 text-gray-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700' }}">
+            Users
+            </a>
+
+            <a href="{{ url('/team') }}"
+            class="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium
+            {{ request()->is('team') ? 'border-indigo-600 text-gray-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700' }}">
+            Team
+            </a>
         </div>
       </div>
       <div class="hidden sm:ml-6 sm:flex sm:items-center">

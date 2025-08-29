@@ -4,8 +4,7 @@
         <img
             src="{{ asset('Images/PF/' . $user->image_path) }}"
             alt="Profile Picture"
-            class="w-32 h-32 rounded-full border-4 border-gray-200 object-cover"
-        >
+            class="w-32 h-32 rounded-full border-4 border-gray-200 object-cover">
     </div>
 
     <!-- User Info -->

@@ -16,7 +16,7 @@ class BackofficeController extends Controller
     }
 
     public function showUser($user_id){
-        $user = User::where('id', $user_id)->firstOrFail()->get();
-        return view('backoffice.userShow');
+        $user = User::where('id', $user_id)->firstOrFail();
+        return view('backoffice.userShow', ['user' => $user]);
     }
 }

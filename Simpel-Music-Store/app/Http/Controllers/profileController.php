@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class profileController extends Controller
@@ -65,5 +67,18 @@ class profileController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function changeUserRole($id, Request $request,){
+        $user = User::where('id', $id)->firstOrFail();
+        $validated = $request->validate([
+            'role' => 'required|in:user,admin', // Only allow these values
+        ]);
+        if($user->role !=  $validated['role']){
+            $user->role =  $validated['role'];
+            $user->save();
+            return redirect('/backoffice/users/' . $id);
+        }
+
     }
 }

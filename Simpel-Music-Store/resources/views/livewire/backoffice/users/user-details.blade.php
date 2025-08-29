@@ -14,22 +14,23 @@
         <p class="text-gray-500">{{ $user->email }}</p>
 
         <!-- Extra info -->
-        <div class="mt-3 space-y-2">
+        <div class="mt-2 space-y-2">
 
             <!-- Role Form -->
-            <form action="{{ route('backoffice.users.show', $user->id) }}" method="POST" class="inline-block">
+            <form action="{{ route('profile.changerole', $user->id) }}" method="POST" class="inline-block">
                 @csrf
-                @method('PATCH')
+                @method('PUT')
                 <p class="text-sm text-gray-600">
-                    <span class="font-semibold">Role:</span>
-                    <select name="role" class="ml-2 px-2 py-1 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
-                        <option value="User" {{ $user->role == 'User' ? 'selected' : '' }}>User</option>
-                        <option value="Admin" {{ $user->role == 'Admin' ? 'selected' : '' }}>Admin</option>
-                    </select>
-                    <p class="text-sm text-gray-600 mt-3">
+                    <p class="text-sm text-gray-600 mb-2">
                         <span class="font-semibold">Joined:</span> {{ $user->created_at->format('d M Y') }}
                     </p>
-                    <button type="submit" class="cursor-pointer ml-2 px-6 py-1.5 mt-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <span class="font-semibold">Role:</span>
+                    <select name="role" class="ml-2 px-2 py-1 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>User</option>
+                        <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
+                    </select>
+                    <br>
+                    <button type="submit" class="cursor-pointer ml-2 px-6 py-1 mt-5 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
                         Save
                     </button>
                 </p>

@@ -47,5 +47,6 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware('can:acces-admin')->group(function (){
         Route::get('/backoffice/overview', [BackofficeController::class, 'overview'])->name('backoffice.overview');
         Route::get('/backoffice/users', [BackofficeController::class, 'users'])->name('backoffice.users');
+        Route::get('/backoffice/users/{id}', [BackofficeController::class, 'showUser'])->name('backoffice.users.show');
     });
 });

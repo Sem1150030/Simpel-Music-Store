@@ -10,7 +10,7 @@
               <h3 class="sr-only">Customer Reviews</h3>
 
               @livewire('products.place-review', ['album' => $album])
-              @foreach ($album->reviews as $review)
+              @foreach ($album->reviews->sortByDesc('created_at') as $review)
 
               {{-- {{ dump(User::where('id', $review->user_id)->name) }} --}}
 

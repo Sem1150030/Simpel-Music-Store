@@ -18,17 +18,18 @@ class UserStats extends Component
     public function mount($user){
        $this->user = $user;
        $this->orders = Order::where('user_id', $user->id)->get();
-       $this->revenueGenerated();
+       $this->revenueGenerated($this->orders);
        $this->getReviews();
     }
 
-    public function revenueGenerated(){
+    public function revenueGenerated($orders){
         $this->totalRevenue = 0;
-        if($this->orders){
-            foreach($this->orders as $order){
+        if($orders){
+            foreach($orders as $order){
                 $this->totalRevenue += $order->Subtotal;
             }
         }
+        return $this->totalRevenue;
     }
 
     public function getReviews(){

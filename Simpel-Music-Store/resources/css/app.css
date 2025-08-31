@@ -20,6 +20,10 @@
   font-style: normal;
 }
 
+.textst {
+    @apply text-[#FCD88C];
+}
+
  /* .txt {
    @apply text-m/6 font-semibold text-[#F4D468]
 } */

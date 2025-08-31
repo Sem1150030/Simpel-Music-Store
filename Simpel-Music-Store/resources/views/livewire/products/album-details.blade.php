@@ -3,17 +3,21 @@
     <div class="lg:grid lg:grid-cols-7 lg:grid-rows-1 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
       <!-- Product image -->
       <div class="lg:col-span-4 lg:row-end-1">
-        <img src="https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-05-product-01.jpg" alt="Sample of 30 icons with friendly and fun details in outline, filled, and brand color styles." class="aspect-[4/3] w-full rounded-lg bg-gray-100 object-cover" />
-      </div>
+        <img src="{{ $album->album_img }}"
+        alt="Sample of 30 icons with friendly and fun details in outline, filled, and brand color styles."
+        class="aspect-square w-full rounded-lg bg-gray-100 object-cover" />
+        </div>
 
       <!-- Product details -->
       <div class="mx-auto mt-14 max-w-2xl sm:mt-16 lg:col-span-3 lg:row-span-2 lg:row-end-2 lg:mt-0 lg:max-w-none">
         <div class="flex flex-col-reverse">
           <div class="mt-4">
-            <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Application UI Icon Pack</h1>
+            <h1 class="text-2xl font-bold tracking-tight textst sm:text-3xl">{{$album->name}} - (LP)</h1>
 
             <h2 id="information-heading" class="sr-only">Product information</h2>
-            <p class="mt-2 text-sm text-gray-500">Version 1.0 (Updated <time datetime="2021-06-05">June 5, 2021</time>)</p>
+            <p class="mt-2 text-xl font-semibold text-gray-200">{{ $album->artist->name}}</p>
+            <p class="mt-2 text-sm text-gray-400">Released at {{ \Carbon\Carbon::parse($album->release_date)->format('Y-m-d') }}
+</p>
           </div>
 
           <div>
@@ -36,24 +40,33 @@
                 <path d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" fill-rule="evenodd" />
               </svg>
             </div>
-            <p class="sr-only">4 out of 5 stars</p>
+            <p class="sr-only">3 out of 5 stars</p>
           </div>
         </div>
 
-        <p class="mt-6 text-gray-500">The Application UI Icon Pack comes with over 200 icons in 3 styles: outline, filled, and branded. This playful icon pack is tailored for complex application user interfaces with a friendly and legible look.</p>
+        <div>
+            <p class="mt-6 text-white">
+                {{ $expanded ? $description : \Illuminate\Support\Str::limit($description, $limit) }}
+            </p>
 
+            @if (strlen($description) > $limit)
+                <button wire:click="toggle" class="cursor-pointer mt-2 text-sm text-blue-400 hover:underline">
+                    {{ $expanded ? 'See less' : 'See more' }}
+                </button>
+            @endif
+        </div>
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
           <button type="button" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">Pay $220</button>
           <button type="button" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-50 px-8 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">Preview</button>
         </div>
 
         <div class="mt-10 border-t border-gray-200 pt-10">
-          <h3 class="text-sm font-medium text-gray-900">Highlights</h3>
+          <h3 class="text-sm font-medium text-gray-200">Songs</h3>
           <div class="mt-4">
-            <ul role="list" class="list-disc space-y-1 pl-5 text-sm/6 text-gray-500 marker:text-gray-300">
-              <li class="pl-2">200+ SVG icons in 3 unique styles</li>
-              <li class="pl-2">Compatible with Figma, Sketch, and Adobe XD</li>
-              <li class="pl-2">Drawn on 24 x 24 pixel grid</li>
+            <ul role="list" class="list-disc space-y-1 pl-5 text-sm/6 text-gray-400 marker:text-gray-300">
+                @foreach ($album->musics as $song)
+                    <li class="pl-2">{{$song->name}}</li>
+                @endforeach
             </ul>
           </div>
         </div>

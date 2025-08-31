@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="mt-25">
-        @livewire('products.album-details')
+        @livewire('products.album-details', ['album' => $album])
     </div>
 @endsection

@@ -15,9 +15,12 @@
     </div>
 </div>
 
-<div>
-    @livewire('home.trending-list')
-</div>
+    <div>
+        @livewire('home.trending-list')
+    </div>
+    <div>
+        @livewire('home.featured-section-one')
+    </div>
 
 @endsection
 

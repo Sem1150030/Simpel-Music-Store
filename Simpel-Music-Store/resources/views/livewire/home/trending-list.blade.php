@@ -1,5 +1,5 @@
 <section aria-labelledby="trending-heading" >
-      <div class="py-16 sm:py-24 lg:mx-auto lg:max-w-7xl lg:px-8 lg:py-32">
+    <div class="py-2 sm:py-24 lg:mx-auto lg:max-w-7xl lg:px-8 lg:pb-16 lg:pt-32">
         <div class="flex items-center justify-between px-4 sm:px-6 lg:px-0">
           <h2 id="trending-heading" class="text-2xl font-bold tracking-tight text-[#FCD88C]">Trending products</h2>
           <a href="#" class="hidden text-sm font-semibold text-[#FCD88C] hover:text-[#f9e1ae] sm:block">

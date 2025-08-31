@@ -8,6 +8,8 @@
           <el-tab-panels>
             <div id="tab-panel-reviews" class="-mb-10">
               <h3 class="sr-only">Customer Reviews</h3>
+
+              @livewire('products.place-review')
               @foreach ($album->reviews as $review)
 
               {{-- {{ dump(User::where('id', $review->user_id)->name) }} --}}

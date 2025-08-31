@@ -10,26 +10,28 @@
 
         <div class="relative mt-8">
           <div class="relative w-full overflow-x-auto">
-            <ul role="list" class="mx-4 inline-flex space-x-8 sm:mx-6 lg:mx-0 lg:grid lg:grid-cols-4 lg:gap-x-8 lg:space-x-0">
-              @foreach ($trendingAlbums as $album)
+            <ul role="list" class="mx-4 inline-flex space-x-8 sm:mx-6 lg:mx-0
+                       lg:grid lg:grid-cols-5 lg:gap-x-6 lg:space-x-0">
+                @foreach ($trendingAlbums as $album)
+                <li class="inline-flex w-64 flex-col text-center lg:w-auto">
+                    <div class="group relative">
+                    <img src="{{ $album->album_img }}"
+                        alt="{{ $album->name }} album cover"
+                        class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75" />
+                    <div class="mt-3">
+                        <h1 class="text-lg font-semibold text-white">
+                            <a href="/albums/{{ $album->id }}">
+                            <span class="absolute inset-0"></span>
+                            {{ $album->name }}
 
-              <li class="inline-flex w-64 flex-col text-center lg:w-auto">
-                <div class="group relative">
-                  <img src="{{ $album->album_img }}" alt="Black machined steel pen with hexagonal grip and small white logo at top." class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75" />
-                  <div class="mt-3">
-
-                    <h1 class=" text-xl font-semibold text-white">
-                      <a href="#">
-                        <span class="absolute inset-0"></span>
-                        {{ $album->name }}
-                      </a>
-                    </h2>
-                    <p class="text-m text-white">{{ $album->artist->name}}</p>
-                    <p class="mt-1 text-m text-white">{{$album->price}}</p>
-                  </div>
-                </div>
-              </li>
-              @endforeach
+                        </a>
+                        </h1>
+                        <p class="text-sm text-white">{{ $album->artist->name}}</p>
+                        <p class="mt-1 text-sm text-white">{{$album->price}}</p>
+                    </div>
+                    </div>
+                </li>
+                @endforeach
             </ul>
           </div>
         </div>

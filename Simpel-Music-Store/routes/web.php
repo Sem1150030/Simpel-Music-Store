@@ -8,6 +8,7 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\profileController;
 use App\Http\Controllers\registerController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\searchController;
 use App\Models\Artist;
 use Illuminate\Support\Facades\Route;
@@ -43,7 +44,8 @@ Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile/overview', [profileController::class, 'overview'])->name('profile.overview');
-    Route::get('/profile/orders', [OrderController::class, 'index']);
+    Route::get('/profile/orders', [OrderController::class, 'index'])->name('profile.orders');
+    Route::post('/review', [ReviewController::class, 'placeReview'])->name('review.store');
 
     Route::middleware('can:acces-admin')->group(function (){
         Route::get('/backoffice/overview', [BackofficeController::class, 'overview'])->name('backoffice.overview');

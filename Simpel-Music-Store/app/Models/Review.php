@@ -9,7 +9,11 @@ class Review extends Model
 {
     use HasFactory;
 
-        protected $fillable = ['user_id'];
+        protected $fillable = ['rating',
+        'comment',
+        'user_id',
+        'reviewable_id',
+        'reviewable_type',];
 
 
     public function reviewable(){

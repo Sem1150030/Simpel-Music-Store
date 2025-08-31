@@ -37,8 +37,8 @@ class albumController extends Controller
      */
     public function show($id)
     {
-        $album = Album::where('id', $id)->firstOrFail();
-        return view('albums.show', ['album' => $album]);
+        $album = Album::with('reviews.user')->findOrFail($id);
+        return view('albums.show', compact('album'));
     }
 
     /**
